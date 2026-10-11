@@ -165,7 +165,6 @@
 :host-context(html.app-web-shell) .profile-header h1 { color: var(--page-text) !important; }
 :host-context(html.app-web-shell) .profile-header ion-button,
 :host-context(html.app-web-shell) .profile-header ion-back-button { --color: var(--page-text) !important; }
-:host-context(html.app-light) .profile-header ion-back-button { --color: #e6edfd !important; color: #e6edfd !important; }
 :host-context(html.app-web-shell) .profile-content { --background: var(--page-bg) !important; --color: var(--page-text) !important; }
 
 @media (min-width: 768px) {

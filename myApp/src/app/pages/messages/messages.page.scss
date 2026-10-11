@@ -326,9 +326,9 @@
 .chat-footer, .chat-footer ion-toolbar { --background: var(--page-bg); --border-color: var(--page-border); }
 .page-header:has(.chat-toolbar-row) { background: linear-gradient(145deg, var(--page-bg), var(--page-surface)); border-radius: 0 0 20px 20px; box-shadow: 0 10px 25px rgba(0,0,0,.2); }
 .page-header:has(.chat-toolbar-row) ion-toolbar { padding: 8px 14px 12px; }
-.chat-toolbar-row .chat-back-button { border:0;border-radius:50%;background:transparent;--background:transparent;--background-hover:transparent;--background-focused:transparent;--background-activated:transparent;--box-shadow:none;--color:#a9927d !important;color:#a9927d; }
+.chat-toolbar-row .chat-back-button { border:0;border-radius:50%;background:transparent;--background:transparent;--background-hover:transparent;--background-focused:transparent;--background-activated:transparent;--box-shadow:none;--color:var(--page-text) !important;color:var(--page-text); }
 .chat-toolbar-row .chat-back-button::part(native) { padding:0;border:0;border-radius:50%;background:transparent;box-shadow:none; }
-.chat-toolbar-row .chat-back-button ion-icon { color:#a9927d; }
+.chat-toolbar-row .chat-back-button ion-icon { color:var(--page-text); }
 .chat-toolbar-row .chat-group-title { color:#a9927d; }
 .chat-toolbar-row .chat-profile-name, .chat-toolbar-row .chat-group-title,
 .chat-toolbar-row .chat-header-actions ion-button { color: var(--page-text); --color: var(--page-text); }
@@ -443,7 +443,7 @@
   --background: transparent !important;
   --background-activated: rgba(110,146,242,.16) !important;
   --border-radius: 12px;
-  --color: #afc5f8 !important;
+  --color: var(--page-text) !important;
   border: 1px solid rgba(175,197,248,.28);
   border-radius: 12px;
   background: transparent !important;

@@ -1,10 +1,11 @@
+import { Location } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { IonAvatar, IonBackButton, IonButton, IonContent, IonFooter, IonHeader, IonIcon, IonInput, IonTextarea, IonToolbar } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { addCircle, archiveOutline, chatbubbleOutline, createOutline, homeOutline, imageOutline, notificationsOutline, personCircleOutline, repeatOutline, settingsOutline, trashOutline, trendingUpOutline, videocamOutline } from 'ionicons/icons';
+import { addCircle, archiveOutline, arrowBackOutline, chatbubbleOutline, createOutline, homeOutline, imageOutline, notificationsOutline, personCircleOutline, repeatOutline, settingsOutline, trashOutline, trendingUpOutline, videocamOutline } from 'ionicons/icons';
 import { PostCardComponent } from '../../components/post-card/post-card.component';
 import { Account, AccountService } from '../../services/account.service';
 import { PostService } from '../../services/post.service';
@@ -25,6 +26,7 @@ export class ProfilePage {
   readonly notificationService = inject(NotificationService);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
+  private readonly location = inject(Location);
   private readonly messageService = inject(MessageService);
   readonly viewState = inject(ViewStateService);
   activeSection: 'posts' | 'photos' | 'videos' | 'reposts' | 'archive' | 'trash' = 'posts';
@@ -51,7 +53,7 @@ export class ProfilePage {
   }
 
   constructor() {
-    addIcons({ addCircle, archiveOutline, chatbubbleOutline, createOutline, homeOutline, imageOutline, notificationsOutline, personCircleOutline, repeatOutline, settingsOutline, trashOutline, trendingUpOutline, videocamOutline });
+    addIcons({ addCircle, archiveOutline, arrowBackOutline, chatbubbleOutline, createOutline, homeOutline, imageOutline, notificationsOutline, personCircleOutline, repeatOutline, settingsOutline, trashOutline, trendingUpOutline, videocamOutline });
     const saved = this.viewState.read<Partial<{ activeSection: 'posts' | 'photos' | 'videos' | 'reposts' | 'archive' | 'trash'; connectionsView: 'followers' | 'following' | null }>>(this.profileStateKey, {});
     if (saved.activeSection) this.activeSection = saved.activeSection;
     this.connectionsView = saved.connectionsView ?? null;
@@ -59,6 +61,14 @@ export class ProfilePage {
 
   get profileStateKey() {
     return `tali-view-profile:${this.route.snapshot.paramMap.get('accountId') ?? 'current'}`;
+  }
+
+  goBack() {
+    if (window.history.state?.navigationId > 1) {
+      this.location.back();
+      return;
+    }
+    void this.router.navigateByUrl('/home');
   }
 
   setProfileSection(section: 'posts' | 'photos' | 'videos' | 'reposts' | 'archive' | 'trash') {

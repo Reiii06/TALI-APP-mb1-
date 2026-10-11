@@ -278,4 +278,45 @@
 .settings-search input::placeholder,
 .profile-field input::placeholder,
 .profile-field textarea::placeholder { color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1; }
+.settings-home ion-button,
+.settings-detail ion-button { --color:var(--page-text)!important; }
+.settings-search input::placeholder,
+.profile-field input::placeholder,
+.profile-field textarea::placeholder { color:var(--page-muted)!important;-webkit-text-fill-color:var(--page-muted)!important;opacity:1; }
+:host-context(html.app-light) .settings-header ion-button,
+:host-context(html.app-light) .settings-header ion-button ion-icon { --color:var(--page-text)!important;color:var(--page-text)!important; }
+:host-context(html.app-light) .settings-home,
+:host-context(html.app-light) .settings-home *,
+:host-context(html.app-light) .settings-detail,
+:host-context(html.app-light) .settings-detail * { color:var(--page-text)!important; }
+:host-context(html.app-light) .settings-home .settings-row span small { color:var(--page-muted)!important;-webkit-text-fill-color:var(--page-muted)!important; }
+:host-context(html.app-light) .settings-search { border:1px solid var(--page-border);background:var(--page-surface);color:var(--page-text); }
+:host-context(html.app-light) .settings-search input,
+:host-context(html.app-light) #settings-search-input { background:transparent!important;color:var(--page-text)!important;-webkit-text-fill-color:var(--page-text)!important;caret-color:var(--page-text)!important; }
+:host-context(html.app-light) .settings-search input::placeholder,
+:host-context(html.app-light) #settings-search-input::placeholder,
+:host-context(html.app-light) .profile-field input::placeholder,
+:host-context(html.app-light) .profile-field textarea::placeholder { color:var(--page-muted)!important;-webkit-text-fill-color:var(--page-muted)!important; }
+:host-context(html.app-light) .settings-home .settings-row.active { background:color-mix(in srgb,var(--ion-color-primary) 14%,var(--page-surface))!important; }
+:host-context(html.app-light) .settings-home .settings-row > .settings-image-icon { filter:brightness(0) saturate(100%); }
+:host-context(html.app-light) .settings-detail { background:var(--page-bg)!important; }
+:host-context(html.app-light) .edit-photo-card,
+:host-context(html.app-light) .gender-options { border:1px solid var(--page-border);background:var(--page-surface); }
+:host-context(html.app-light) .edit-photo-avatar { background:var(--page-bg); }
+:host-context(html.app-light) .profile-field input,
+:host-context(html.app-light) .profile-field textarea,
+:host-context(html.app-light) .profile-field select,
+:host-context(html.app-light) .gender-picker-trigger,
+:host-context(html.app-light) .custom-gender-input { border:1px solid var(--page-border)!important;background:var(--page-surface)!important;color:var(--page-text)!important;-webkit-text-fill-color:var(--page-text)!important; }
+:host-context(html.app-light) .settings-detail .notification-settings-card,
+:host-context(html.app-light) .settings-detail .settings-info-card,
+:host-context(html.app-light) .settings-detail .account-safety-list,
+:host-context(html.app-light) .settings-detail .connection-settings-card,
+:host-context(html.app-light) .settings-detail .story-privacy-section,
+:host-context(html.app-light) .settings-detail .privacy-setting-card { border-color:var(--page-border);background:var(--page-surface); }
+:host-context(html.app-light) .settings-detail ion-item { --color:var(--page-text)!important; }
+:host-context(html.app-light) .settings-detail ion-button,
+:host-context(html.app-light) .settings-messages-button { --background:var(--ion-color-primary)!important;--color:var(--ion-color-primary-contrast)!important; }
+:host-context(html.app-light) .change-photo-button { --background:var(--ion-color-primary)!important;--color:var(--ion-color-primary-contrast)!important; }
+:host-context(html.app-light) .settings-messages-button .send-horizontal-icon { filter:brightness(0) invert(1); }
 .change-photo-button { --background:#252525!important;--color:#fff!important; }
