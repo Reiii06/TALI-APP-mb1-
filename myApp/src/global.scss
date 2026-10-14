@@ -1114,6 +1114,23 @@ html:not(.app-light) body button {
   background: #ffffff !important;
   color: #071039 !important;
 }
+/* Settings use transparent, outlined navigation and Account Center buttons. */
+html:not(.app-light) body ion-content.settings-content button.settings-row,
+html:not(.app-light) body ion-content.settings-content button.account-profiles-card,
+html:not(.app-light) body ion-content.settings-content button.account-setting-row {
+  border-color: rgba(230, 237, 253, .42) !important;
+  background: transparent !important;
+  color: #e6edfd !important;
+  box-shadow: none !important;
+}
+html:not(.app-light) body ion-content.settings-content button.settings-row {
+  border-radius: 12px !important;
+}
+html:not(.app-light) body ion-content.settings-content button.settings-row.active {
+  border-color: #afc5f8 !important;
+  background: transparent !important;
+  color: #ffffff !important;
+}
 html body .profile-content-panel .profile-sections button {
   border-color: transparent !important;
   background: transparent !important;
@@ -1434,4 +1451,14 @@ html.app-light body .profile-hero .profile-top > ion-button.edit-profile-button 
   -webkit-text-fill-color: #fff !important;
   opacity: 1 !important;
   visibility: visible !important;
+}
+
+/* Keep settings search text on its dark pill instead of the global white input fill. */
+html:not(.app-light) body ion-content.settings-content #settings-search-input {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #e6edfd !important;
+  -webkit-text-fill-color: #e6edfd !important;
+  caret-color: #e6edfd !important;
+  box-shadow: none !important;
 }

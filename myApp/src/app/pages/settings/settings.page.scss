@@ -138,6 +138,51 @@
   cursor: pointer;
 }
 
+/* Account Center actions are outlined controls, not filled white buttons. */
+.account-profiles-card,
+.account-setting-row {
+  box-sizing: border-box;
+  color: var(--page-text);
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.account-profiles-card {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  border: 1px solid var(--settings-border);
+  border-radius: 20px;
+}
+
+.account-setting-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 18px;
+  min-height: 60px;
+  padding: 12px 20px;
+  border: 0;
+  border-bottom: 1px solid var(--settings-border);
+}
+
+.account-setting-row:last-child { border-bottom: 0; }
+.account-setting-row > ion-icon:first-child { flex: 0 0 24px; font-size: 1.35rem; }
+.account-setting-row > span { flex: 1; }
+.account-setting-row .account-row-chevron { margin-left: auto; }
+.account-settings-list {
+  overflow: hidden;
+  border: 1px solid var(--settings-border);
+  border-radius: 20px;
+  background: transparent;
+}
+.account-profiles-card:hover,
+.account-setting-row:hover { background: color-mix(in srgb, var(--page-text) 6%, transparent); }
+
 .settings-row > ion-icon,
 .settings-row > .settings-image-icon {
   flex: 0 0 26px;
@@ -240,10 +285,22 @@
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  padding: 10px 0;
+  padding: 12px 10px;
   border-bottom: 1px solid var(--page-border);
   color: var(--page-text);
 }
+
+.connection-settings-card,
+.account-safety-list,
+.settings-info-card,
+.notification-settings-card,
+.privacy-setting-card {
+  padding: 14px 18px;
+}
+
+.connection-settings-card > h3,
+.account-safety-list > h3,
+.settings-info-card > h3 { margin-top: 0; }
 
 .activity-post {
   padding: 12px 0;
@@ -452,4 +509,88 @@
 :host-context(html.app-light) .gender-picker-trigger {
   color: var(--page-text);
   -webkit-text-fill-color: var(--page-text);
+}
+
+/* Keep the settings workspace visually consistent across the overview and
+   every detail panel, with the account center visible on desktop by default. */
+@media (min-width: 681px) {
+  .settings-layout {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-width: none;
+    grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
+    overflow: hidden;
+  }
+
+  .settings-home {
+    min-height: 0;
+    padding: 10px 14px 36px;
+    overflow-y: auto;
+    border-right: 1px solid var(--settings-border);
+  }
+
+  .settings-detail {
+    display: block;
+    min-height: 0;
+    padding: clamp(28px, 5vh, 56px) clamp(28px, 6vw, 80px) 48px;
+    overflow-y: auto;
+  }
+
+  .account-center-panel {
+    width: min(100%, 720px);
+    margin: 0 auto;
+  }
+
+  .account-center-panel > h2 {
+    margin-bottom: 12px;
+    font-size: clamp(1.5rem, 2vw, 1.8rem);
+    font-weight: 700;
+  }
+
+  .account-profiles-card,
+  .account-settings-list,
+  .notification-settings-card,
+  .privacy-setting-card,
+  .connection-settings-card,
+  .account-safety-list,
+  .settings-info-card,
+  .edit-photo-card {
+    border: 1px solid var(--settings-border);
+    border-radius: 20px;
+    background: var(--settings-content-bg);
+    box-shadow: none;
+  }
+
+  .account-profiles-card {
+    min-height: 108px;
+    margin-bottom: 20px;
+    background: transparent;
+  }
+
+  .account-settings-heading {
+    margin: 0 0 12px;
+    color: var(--page-text) !important;
+    font-size: 1rem !important;
+    font-weight: 700;
+  }
+
+  .account-settings-list { overflow: hidden; }
+  .account-setting-row { min-height: 67px; padding-inline: 22px; background: transparent; }
+  .account-setting-row:not(:last-child) { border-bottom-color: var(--settings-border); }
+  .settings-row.active { background: var(--settings-row-active); }
+  .settings-group h2, .group-heading { color: var(--page-text); }
+}
+
+@media (max-width: 680px) {
+  .settings-layout { display: block; }
+  .settings-home { display: block; }
+  .settings-detail { display: none; }
+  .settings-layout.mobile-detail-open .settings-home { display: none; }
+  .settings-layout.mobile-detail-open .settings-detail {
+    display: block;
+    min-height: 100%;
+    padding: 18px 16px 36px;
+  }
 }
