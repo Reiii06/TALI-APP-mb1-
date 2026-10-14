@@ -5,7 +5,7 @@
 .create-account-content { --background: #1a3bb0; --color: var(--auth-paper); }
 .create-account-content::part(background) { background: linear-gradient(145deg, rgba(0,0,0,.58), rgba(15,34,112,.42)), url('/assets/bgdesign2.svg') center / cover fixed; }
 .create-account-wrapper { box-sizing: border-box; display: flex; min-height: 100%; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 52px 18px 28px; }
-.create-account-logo { display: block; width: 96px; height: 96px; flex: 0 0 auto; margin-bottom: 0; object-fit: contain; }
+.create-account-logo { display: block; width: 180px; height: 180px; flex: 0 0 auto; margin: 0 auto; object-fit: contain; }
 .create-account-card { width: 100%; max-width: 430px; padding: 26px 22px 22px; border: 1px solid rgba(230,237,253,.13); border-radius: 26px; background: rgba(0,0,0,.9); color: var(--auth-paper); box-shadow: 0 24px 70px rgba(0,0,0,.42); backdrop-filter: blur(16px); }
 .create-account-heading { margin: 0 0 18px; text-align: center; }
 .create-account-heading h1 { margin: 6px 0 0; color: var(--auth-paper); font-size: 1.45rem; font-weight: 650; }
