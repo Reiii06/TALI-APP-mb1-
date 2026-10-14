@@ -66,11 +66,11 @@
       <nav class="profile-sections" aria-label="Profile content">
       <button type="button" aria-label="Posts" title="Posts" [class.active]="activeSection === 'posts'" [attr.aria-pressed]="activeSection === 'posts'" (click)="setProfileSection('posts')"><img src="assets/app.png" alt="" aria-hidden="true"></button>
       <button type="button" aria-label="Videos" title="Videos" [class.active]="activeSection === 'videos'" [attr.aria-pressed]="activeSection === 'videos'" (click)="setProfileSection('videos')"><img class="video-tab-icon" src="assets/square-play.png?v=2" alt="" aria-hidden="true"></button>
-      <button type="button" aria-label="Reposts" title="Reposts" [class.active]="activeSection === 'reposts'" [attr.aria-pressed]="activeSection === 'reposts'" (click)="setProfileSection('reposts')"><ion-icon name="repeat-outline" aria-hidden="true"></ion-icon></button>
+      <button type="button" aria-label="Reposts" title="Reposts" [class.active]="activeSection === 'reposts'" [attr.aria-pressed]="activeSection === 'reposts'" (click)="setProfileSection('reposts')"><img src="assets/repeat-2.png" alt="" aria-hidden="true"></button>
     </nav>
     @if (activeSection === 'posts') {
       <section class="profile-posts">
-        @if (!ownPosts.length) { <div class="empty-profile"><ion-icon name="create-outline"></ion-icon><p>{{ isOwnProfile ? 'Your shared thoughts will appear here.' : 'No posts shared yet.' }}</p></div> }
+        
         <div class="profile-posts-feed">
           @for (post of ownPosts; track post.id) { <app-post-card [post]="post"></app-post-card> }
         </div>
@@ -80,12 +80,12 @@
       <section class="profile-gallery profile-video-gallery" aria-label="Videos">
         @for (video of profileVideos; track $index) {
           <video controls playsinline preload="metadata" [attr.aria-label]="video.name"><source [src]="video.source" [type]="video.type" /></video>
-        } @empty { <div class="empty-profile"><img class="empty-state-icon" src="assets/square-play.png?v=2" alt="" aria-hidden="true"><p>No videos shared yet.</p></div> }
+        } @empty { }
       </section>
     }
     @if (activeSection === 'reposts') {
       <section class="profile-posts">
-        @if (!repostedPosts.length) { <div class="empty-profile"><ion-icon name="repeat-outline"></ion-icon><p>No reposts yet.</p></div> }
+        
         <div class="profile-posts-feed">
           @for (post of repostedPosts; track post.id) { <app-post-card [post]="post"></app-post-card> }
         </div>
