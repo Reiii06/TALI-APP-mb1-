@@ -81,7 +81,6 @@
               </div>
               <input #groupPhotoInput class="group-media-input" type="file" accept="image/*" multiple (change)="onPostFilesSelected($event)" aria-label="Choose group post photos" />
               <input #groupVideoInput class="group-media-input" type="file" accept="video/*" (change)="onPostFilesSelected($event)" aria-label="Choose group post video" />
-              <input #groupMediaInput class="group-media-input" type="file" accept="image/*,video/*" multiple (change)="onPostFilesSelected($event)" aria-label="Choose group post photos or video" />
               <div class="group-composer-tools" aria-label="Post attachments">
                 <button class="group-composer-tool" type="button" [disabled]="mediaUploading" (click)="groupPhotoInput.click()">
                   <ion-icon name="image-outline" aria-hidden="true"></ion-icon><span>Photo</span>
@@ -124,12 +123,6 @@
                   </div>
                 }
               </div>
-              } @else {
-                <button class="group-media-drop-area" type="button" [disabled]="mediaUploading" (click)="groupMediaInput.click()">
-                  <ion-icon name="image-outline" aria-hidden="true"></ion-icon>
-                  <strong>Add photos or videos</strong>
-                  <span>Share a moment with your group</span>
-                </button>
               }
               <div class="group-composer-submit-row">
                 @if (mediaUploading) { <span class="group-upload-status" role="status">Adding media... {{ mediaUploadProgress }}%</span> }
