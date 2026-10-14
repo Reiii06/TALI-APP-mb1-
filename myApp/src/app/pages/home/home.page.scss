@@ -30,8 +30,8 @@
 
 .home-brand-mark {
   display: grid;
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   place-items: center;
   justify-self: center;
 }
@@ -227,3 +227,9 @@ app-post-card { display: block; margin: 0 12px 12px; }
 }
 
 
+
+.home-footer img.navigation-icon { display: block; width: 24px; height: 24px; object-fit: contain; }
+
+.home-brand-mark .logo-on-light { display: none; }
+:host-context(html.app-light) .home-brand-mark .logo-on-dark { display: none; }
+:host-context(html.app-light) .home-brand-mark .logo-on-light { display: block; }
