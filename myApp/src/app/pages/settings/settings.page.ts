@@ -324,7 +324,13 @@ export class SettingsPage {
   }
 
   logout() {
-    this.pendingLogoutAccount = this.accountService.selectedAccount() ?? null;
+    const account = this.accountService.selectedAccount();
+    if (!account) {
+      this.accountService.logout();
+      void this.router.navigateByUrl('/login');
+      return;
+    }
+    this.pendingLogoutAccount = account;
   }
 
   cancelLogout() {
