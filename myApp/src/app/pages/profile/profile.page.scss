@@ -397,6 +397,7 @@
 	.stats-row strong { font-size: .78rem; }
 	.stats-row span { font-size: .6rem; }
 }
+main
 .profile-privacy-settings { display:grid;gap:12px;margin:18px 0;padding:16px;border:1px solid var(--app-border);border-radius:16px;background:var(--app-surface); }
 .profile-privacy-settings h3 { margin:0;color:var(--app-text);font-size:1rem; }
 .profile-privacy-settings label { display:grid;gap:7px;color:var(--app-text);font-size:.84rem;font-weight:700; }
@@ -411,3 +412,4 @@
 .crop-control { display: grid; gap: 6px; color: var(--page-text); font-size: .82rem; }
 .crop-control input { width: 100%; accent-color: var(--ion-color-primary); }
 .crop-control select { min-height: 42px; padding: 8px 10px; border: 1px solid var(--page-border); border-radius: 10px; background: var(--page-bg); color: var(--page-text); font: inherit; }
+

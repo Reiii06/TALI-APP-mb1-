@@ -72,7 +72,7 @@
         }
       </main>
 
-    @if (mobileDetailOpen) { <section class="settings-detail">
+    <section class="settings-detail">
       @if (activeSection === 'profile') {
         <h2>Edit profile</h2>
         <form class="profile-settings-form" (ngSubmit)="saveProfileSettings()">
@@ -270,7 +270,7 @@
       }
       @if (activeSection === 'payments') { <h2>Subscriptions &amp; Payments</h2><section class="settings-info-card"><p class="detail-copy">No subscriptions or payment methods are connected.</p></section> }
       @if (activeSection === 'about') { <h2>About</h2><section class="settings-info-card"><p class="detail-copy">Tali · Version 0.0.1</p><p class="detail-copy">A space for people and communities to connect.</p></section> }
-    </section> }
+    </section>
   </div>
   <ion-button class="settings-messages-button" routerLink="/messages" aria-label="Messages"><img class="send-horizontal-icon" slot="start" src="assets/send-horizontal.png" alt="">Messages</ion-button>
 </ion-content>

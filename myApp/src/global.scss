@@ -605,6 +605,7 @@ ion-content.home-content {
 }
 
 .page-nav::before {
+	display: none;
 	position: absolute;
 	top: -9px;
 	left: calc(10% - 35px);
@@ -621,6 +622,16 @@ ion-content.home-content {
 .page-nav.profile-nav::before { left: calc(90% - 35px); }
 
 .page-nav > ion-button { position: relative; z-index: 1; }
+.page-nav img.navigation-icon {
+	display: block;
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
+	filter: brightness(0) invert(1);
+}
+.page-nav ion-button.active-tab img.navigation-icon {
+	filter: brightness(0) saturate(100%) invert(18%) sepia(96%) saturate(2555%) hue-rotate(222deg) brightness(88%) contrast(110%);
+}
 
 body .page-nav ion-button {
 	pointer-events: auto !important;
@@ -639,15 +650,15 @@ body .page-nav ion-button.active-tab,
 body .page-nav ion-button.is-active {
 	position: relative;
 	z-index: 1;
-	width: 56px !important;
-	height: 56px !important;
-	transform: translateY(-4px);
+	width: 40px !important;
+	height: 40px !important;
+	transform: none;
 	border-radius: 50% !important;
-	--background: var(--ion-color-primary) !important;
-	--background-activated: var(--ion-color-primary-shade) !important;
-	--color: var(--ion-color-primary-contrast) !important;
+	--background: #ffffff !important;
+	--background-activated: #f0f0f0 !important;
+	--color: var(--ion-color-primary) !important;
 	--border-radius: 50%;
-	z-index: 2;
+	z-index: 1;
 }
 
 body .page-nav ion-button.active-tab.compose-button {
@@ -1155,6 +1166,23 @@ html:not(.app-light) body button {
   background: transparent;
   color: var(--app-text);
 }
+/* Settings use transparent, outlined navigation and Account Center buttons. */
+html:not(.app-light) body ion-content.settings-content button.settings-row,
+html:not(.app-light) body ion-content.settings-content button.account-profiles-card,
+html:not(.app-light) body ion-content.settings-content button.account-setting-row {
+  border-color: rgba(230, 237, 253, .42) !important;
+  background: transparent !important;
+  color: #e6edfd !important;
+  box-shadow: none !important;
+}
+html:not(.app-light) body ion-content.settings-content button.settings-row {
+  border-radius: 12px !important;
+}
+html:not(.app-light) body ion-content.settings-content button.settings-row.active {
+  border-color: #afc5f8 !important;
+  background: transparent !important;
+  color: #ffffff !important;
+}
 html body .profile-content-panel .profile-sections button {
   border-color: transparent !important;
   background: transparent !important;
@@ -1475,4 +1503,14 @@ html.app-light body .profile-hero .profile-top > ion-button.edit-profile-button 
   -webkit-text-fill-color: #fff !important;
   opacity: 1 !important;
   visibility: visible !important;
+}
+
+/* Keep settings search text on its dark pill instead of the global white input fill. */
+html:not(.app-light) body ion-content.settings-content #settings-search-input {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #e6edfd !important;
+  -webkit-text-fill-color: #e6edfd !important;
+  caret-color: #e6edfd !important;
+  box-shadow: none !important;
 }

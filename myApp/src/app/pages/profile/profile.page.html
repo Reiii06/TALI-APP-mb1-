@@ -66,11 +66,11 @@
       <nav class="profile-sections" aria-label="Profile content">
       <button type="button" aria-label="Posts" title="Posts" [class.active]="activeSection === 'posts'" [attr.aria-pressed]="activeSection === 'posts'" (click)="setProfileSection('posts')"><img src="assets/app.png" alt="" aria-hidden="true"></button>
       <button type="button" aria-label="Videos" title="Videos" [class.active]="activeSection === 'videos'" [attr.aria-pressed]="activeSection === 'videos'" (click)="setProfileSection('videos')"><img class="video-tab-icon" src="assets/square-play.png?v=2" alt="" aria-hidden="true"></button>
-      <button type="button" aria-label="Reposts" title="Reposts" [class.active]="activeSection === 'reposts'" [attr.aria-pressed]="activeSection === 'reposts'" (click)="setProfileSection('reposts')"><ion-icon name="repeat-outline" aria-hidden="true"></ion-icon></button>
+      <button type="button" aria-label="Reposts" title="Reposts" [class.active]="activeSection === 'reposts'" [attr.aria-pressed]="activeSection === 'reposts'" (click)="setProfileSection('reposts')"><img src="assets/repeat-2.png" alt="" aria-hidden="true"></button>
     </nav>
     @if (activeSection === 'posts') {
       <section class="profile-posts">
-        @if (!ownPosts.length) { <div class="empty-profile"><ion-icon name="create-outline"></ion-icon><p>{{ isOwnProfile ? 'Your shared thoughts will appear here.' : 'No posts shared yet.' }}</p></div> }
+        
         <div class="profile-posts-feed">
           @for (post of ownPosts; track post.id) { <app-post-card [post]="post"></app-post-card> }
         </div>
@@ -80,12 +80,12 @@
       <section class="profile-gallery profile-video-gallery" aria-label="Videos">
         @for (video of profileVideos; track $index) {
           <video controls playsinline preload="metadata" [attr.aria-label]="video.name"><source [src]="video.source" [type]="video.type" /></video>
-        } @empty { <div class="empty-profile"><img class="empty-state-icon" src="assets/square-play.png?v=2" alt="" aria-hidden="true"><p>No videos shared yet.</p></div> }
+        } @empty { }
       </section>
     }
     @if (activeSection === 'reposts') {
       <section class="profile-posts">
-        @if (!repostedPosts.length) { <div class="empty-profile"><ion-icon name="repeat-outline"></ion-icon><p>No reposts yet.</p></div> }
+        
         <div class="profile-posts-feed">
           @for (post of repostedPosts; track post.id) { <app-post-card [post]="post"></app-post-card> }
         </div>
@@ -143,8 +143,8 @@
 @if (isOwnProfile) {
 <ion-footer class="page-footer ion-no-border"><ion-toolbar>
   <nav class="page-nav profile-nav" aria-label="Main navigation">
-    <ion-button fill="clear" routerLink="/home" (click)="viewState.handleTabTap('/home', 'tali-view-home')" aria-label="Home"><ion-icon slot="icon-only" name="home-outline"></ion-icon></ion-button>
-    <ion-button fill="clear" routerLink="/messages" (click)="viewState.handleTabTap('/messages', 'tali-view-messages')" aria-label="Messages"><ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon></ion-button>
+    <ion-button fill="clear" routerLink="/home" (click)="viewState.handleTabTap('/home', 'tali-view-home')" aria-label="Home"><img class="navigation-icon house-navigation-icon" slot="icon-only" src="assets/house.png" alt="" aria-hidden="true"></ion-button>
+    <ion-button fill="clear" routerLink="/messages" (click)="viewState.handleTabTap('/messages', 'tali-view-messages')" aria-label="Messages"><img class="navigation-icon send-navigation-icon" slot="icon-only" src="assets/send-horizontal.png" alt="" aria-hidden="true"></ion-button>
     <ion-button fill="clear" class="compose-button" routerLink="/add-post" (click)="viewState.handleTabTap('/add-post', 'tali-post-draft')" aria-label="Create post"><ion-icon slot="icon-only" name="add-circle"></ion-icon></ion-button>
     <ion-button fill="clear" class="notification-nav-button" routerLink="/activity" (click)="viewState.handleTabTap('/activity', 'tali-view-activity')" aria-label="Activity"><ion-icon slot="icon-only" name="notifications-outline"></ion-icon>@if (unreadNotifications) { <span class="notification-badge">{{ unreadNotifications }}</span> }</ion-button>
     <ion-button fill="solid" class="active-tab" routerLink="/profile" (click)="viewState.handleTabTap('/profile', 'tali-view-profile:current')" aria-label="Profile"><ion-icon slot="icon-only" name="person-circle-outline"></ion-icon></ion-button>
